@@ -1,0 +1,533 @@
+@use 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;500;700;900&display=swap');
+$gradient: linear-gradient(-45deg, #4059E1, #4500C2);
+$primary : #423BD7;
+$grey : #EFEFEF;
+$black : #212121;
+
+$header-height: 70px;
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: $black;
+}
+
+h2 {
+  font-family: 'Bebas Neue';
+  font-size: 50px;
+}
+
+header {
+  position: fixed;
+  height: 70px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  width: calc(100% - 30px);
+  padding: 0px 15px;
+  z-index: 100;
+
+  .contact-button {
+    cursor: pointer;
+    font-size: 24px;
+    font-family: "Bebas Neue";
+
+    i {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .contact-modal-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .modal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      padding: 20px;
+      background-color: white;
+      width: 600px;
+      font-size: 18px;
+
+      @media only screen and (max-width: 800px) {
+        width: calc(100vw - 40px - 20px);
+      }
+
+      & > *:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      h2 i {
+        background: $gradient;
+        background-clip: text;  -webkit-background-clip: text;  -moz-background-clip: text;  -moz-text-fill-color: transparent;  -webkit-text-fill-color: transparent;
+      }
+
+      .mail {
+        cursor: pointer;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        background: $gradient;
+        border-radius: 10px;
+        font-family: "Bebas Neue";
+        font-size: 30px;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      li {
+
+        display: flex;
+        align-items: center;
+
+        &::before{
+          content: "";
+          width: 10px;
+          height: 10px;
+          background: #423BD7;
+          border-radius: 100%;
+          display: block;
+          margin-right: 5px;
+        }
+      }
+
+      .close {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        opacity: 0.8;
+        font-size: 30px;
+
+        &:hover {
+          opacity: 1;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+main {
+  margin-top: $header-height;
+
+  #title {
+    padding: 0;
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    @media only screen and (max-width: 800px) {
+      grid-template-columns: 100%;
+      grid-template-rows: 50% 50%;
+      height: auto;
+    }
+
+    .background-image {
+      background-size: cover;
+      background-position: center;
+      z-index: -4;
+
+      @media only screen and (max-width: 800px) {height: 150px;}
+    }
+
+    .nameAndLogo-container {
+      position: relative;
+
+      @media only screen and (max-width: 800px) {padding: 10px 0 30px 0}
+
+      .background-1, .background-2 {
+        position: absolute;
+        width: 125%;
+        height: 125%;
+        top: 50%;
+
+        @media only screen and (max-width: 800px) {
+          left: 50%;
+          top : 0;
+        }
+      }
+    
+      .background-1 {
+        background: #ffffff70;
+        transform: rotate(5deg) translate(-100px, -50%);
+        z-index: -2;
+        @media only screen and (max-width: 800px) {
+          transform: rotate(5deg) translate(-50%, -30px)
+        }
+      }
+    
+      .background-2 {
+        background: $gradient;
+        transform: rotate(5deg) translate(-70px, -50%);
+        z-index: -1;
+        @media only screen and (max-width: 800px) {
+          transform: rotate(5deg) translate(-50%, 0px)
+        }
+
+        
+      }
+
+      
+
+      .nameAndLogo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+        .image-background {
+          position: absolute;
+          width: 1000px;
+          height: 1000px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          z-index: -1;
+          @media only screen and (max-width: 800px) {width: 700px;}
+        }
+
+        img {
+          width: 400px;
+          margin-top: -20px;
+          @media only screen and (max-width: 800px) {width:80%;}
+        }
+
+        h1 {
+          color: white;
+          font-family: 'Bebas Neue';
+          font-size: 40px;
+        }
+      }
+
+    }
+
+  }
+
+  section:nth-child(2n) {
+    background-color: $grey;
+  }
+
+  #infoStrip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0px;
+
+
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+    }
+
+    .info, .circle {
+      margin-right: 30px;
+      @media only screen and (max-width: 800px) {
+        margin-bottom: 10px;
+      }
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue';
+      color: $black;
+      font-size: 50px;
+      text-align: center;
+    }
+
+    .circle {
+      $diameter : 15px;
+      display: block;
+      width: $diameter;
+      height: $diameter;
+      border-radius: $diameter;
+      background-color: $primary;
+    }
+  }
+
+  #presentation {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    @media only screen and (max-width: 800px) {
+      grid-template-columns: 100%;
+      grid-row: 2;
+      
+    }
+
+    .image-container, .info-container {
+      position: relative;
+    }
+
+    .part-info, .part-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .part-info {
+      padding: 50px;
+      h2 {
+        font-size: 70px;
+        background: $gradient;
+        background-clip: text;  -webkit-background-clip: text;  -moz-background-clip: text;  -moz-text-fill-color: transparent;  -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+    }
+
+    .part-image {
+      .image-container {
+        height: 500px;
+        width: 550px;
+        padding: 20px;
+      }
+      
+      $decalage : 100px;
+      .img1, .img2 {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+      }
+
+      .img1 {
+        transform: translate(calc(-50% + $decalage), calc(-50% - $decalage));
+        width: 400px;
+        height: 300px;
+      }
+      
+      .img2 {
+        transform: translate(calc(-50% - $decalage), calc(-50% + $decalage));
+        width: 300px;
+        height: 300px;
+      }
+      @media only screen and (max-width: 800px) {
+
+        .image-container {
+          padding: 0;
+          height: auto;
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+        }
+
+        .img1, .img2 {
+          top: auto;
+          left: auto;
+          position: relative;
+          transform: translate(0,0);
+          width: 100%;
+          height: 200px;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+
+  #activity {
+    text-align: center;
+    padding: 30px 0px;
+
+    h2 {
+      color: $black;
+    }
+
+    .activities {
+      margin-top: 20px;
+      display: flex;
+      align-items:flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .activity {
+
+      width: 300px;
+      margin-right: 20px;
+
+      @media only screen and (max-width: 800px) {margin-bottom: 20px;}
+
+      i {
+        font-size: 80px;
+        background: $gradient;
+        background-clip: text;  -webkit-background-clip: text;  -moz-background-clip: text;  -moz-text-fill-color: transparent;  -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        margin-top: 20px;
+        font-size: 30px;
+        color: $black;
+        font-family: 'Bebas Neue';
+      }
+    }
+
+  }
+
+  #sponsor {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    @media only screen and (max-width: 800px) {
+      grid-template-columns: 100%;
+      grid-row: auto auto;
+    }
+
+    .title-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+
+      @media only screen and (max-width: 800px) {background: $gradient;}
+
+      .background-1 {
+        position: absolute;
+        width: 100%;
+        height: 400%;
+        top: 50%;
+
+        background: $gradient;
+        transform: rotate(5deg) translate(-100px, -50%);
+        z-index: -2;
+        @media only screen and (max-width: 800px) {display: none;}
+      }
+
+      h2 {
+        color: white;
+      }
+    }
+
+    .sponsor-images {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        background-size: contain;
+        height: 100px;
+        width: 200px;
+        background-position: center;
+        background-repeat: no-repeat;
+
+      }
+    }
+  }
+
+  #location {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    @media only screen and (max-width: 800px) {
+      grid-template-columns: auto;
+      grid-template-rows: auto auto;
+    }
+
+    .map {
+      background-size: cover;
+      background-position: center;
+      min-height: 300px;
+    }
+
+    .info {
+
+      padding: 30px;
+
+      h2 {
+        font-size: 70px;
+        background: $gradient;
+        background-clip: text;  -webkit-background-clip: text;  -moz-background-clip: text;  -moz-text-fill-color: transparent;  -webkit-text-fill-color: transparent;
+      }
+
+      & > div {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+
+      .text-icon {
+        display: flex; 
+        align-items: center;
+
+        span {
+          min-width: 50px;
+
+          i {
+            font-size: 40px;
+            background: $gradient;
+            background-clip: text;  -webkit-background-clip: text;  -moz-background-clip: text;  -moz-text-fill-color: transparent;  -webkit-text-fill-color: transparent;
+          }
+        }
+
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  #club {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    font-size: 20px;
+    @media only screen and (max-width: 800px) {
+      grid-template-columns: auto;
+      grid-template-rows: 100px auto;
+    }
+
+    .info {
+      padding: 30px;
+    }
+
+    .logo {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 80%;
+
+      @media only screen and (max-width: 800px) {
+        background-size: contain;
+        background-position: center;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $grey;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    opacity: 0.8;
+    text-align: center;
+  }
+}
