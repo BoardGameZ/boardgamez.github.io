@@ -85,6 +85,7 @@ header {
         border-radius: 10px;
         font-family: "Bebas Neue";
         font-size: 30px;
+        overflow-wrap: break-word;
 
         &:hover {
           opacity: 0.9;
@@ -137,8 +138,7 @@ main {
 
     @media only screen and (max-width: 800px) {
       grid-template-columns: 100%;
-      grid-template-rows: 50% 50%;
-      height: auto;
+      grid-template-rows: 20% 80%;
     }
 
     .background-image {
@@ -167,7 +167,8 @@ main {
       }
     
       .background-1 {
-        background: #ffffff70;
+        background: #ffffff;
+        opacity: 0.5;
         transform: rotate(5deg) translate(-100px, -50%);
         z-index: -2;
         @media only screen and (max-width: 800px) {
@@ -254,6 +255,10 @@ main {
       color: $black;
       font-size: 50px;
       text-align: center;
+
+      @media only screen and (max-width: 800px) {
+        font-size: 30px;
+      }
     }
 
     .circle {
@@ -416,8 +421,11 @@ main {
 
         background: $gradient;
         transform: rotate(5deg) translate(-100px, -50%);
-        z-index: -2;
         @media only screen and (max-width: 800px) {display: none;}
+      }
+
+      .title {
+        z-index: 1;
       }
 
       h2 {
@@ -508,9 +516,13 @@ main {
     .logo {
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 80%;
+      display: block;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      margin: 20px;
 
       @media only screen and (max-width: 800px) {
+        width: 80vw;
         background-size: contain;
         background-position: center;
         margin-top: 30px;
@@ -520,8 +532,7 @@ main {
 }
 
 footer {
-  background-color: $grey;
-  height: 30px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
