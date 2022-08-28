@@ -131,6 +131,7 @@ header .contact-modal-container .modal .mail {
   border-radius: 10px;
   font-family: "Bebas Neue";
   font-size: 30px;
+  overflow-wrap: break-word;
 }
 header .contact-modal-container .modal .mail:hover {
   opacity: 0.9;
@@ -175,8 +176,7 @@ main #title {
 @media only screen and (max-width: 800px) {
   main #title {
     grid-template-columns: 100%;
-    grid-template-rows: 50% 50%;
-    height: auto;
+    grid-template-rows: 20% 80%;
   }
 }
 main #title .background-image {
@@ -210,7 +210,8 @@ main #title .nameAndLogo-container .background-1, main #title .nameAndLogo-conta
   }
 }
 main #title .nameAndLogo-container .background-1 {
-  background: rgba(255, 255, 255, 0.4392156863);
+  background: #ffffff;
+  opacity: 0.5;
   transform: rotate(5deg) translate(-100px, -50%);
   z-index: -2;
 }
@@ -295,6 +296,11 @@ main #infoStrip .info {
   color: #212121;
   font-size: 50px;
   text-align: center;
+}
+@media only screen and (max-width: 800px) {
+  main #infoStrip .info {
+    font-size: 30px;
+  }
 }
 main #infoStrip .circle {
   display: block;
@@ -447,12 +453,14 @@ main #sponsor .title-container .background-1 {
   top: 50%;
   background: linear-gradient(-45deg, #4059E1, #4500C2);
   transform: rotate(5deg) translate(-100px, -50%);
-  z-index: -2;
 }
 @media only screen and (max-width: 800px) {
   main #sponsor .title-container .background-1 {
     display: none;
   }
+}
+main #sponsor .title-container .title {
+  z-index: 1;
 }
 main #sponsor .title-container h2 {
   color: white;
@@ -537,10 +545,14 @@ main #club .info {
 main #club .logo {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 80%;
+  display: block;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  margin: 20px;
 }
 @media only screen and (max-width: 800px) {
   main #club .logo {
+    width: 80vw;
     background-size: contain;
     background-position: center;
     margin-top: 30px;
@@ -548,8 +560,7 @@ main #club .logo {
 }
 
 footer {
-  background-color: #EFEFEF;
-  height: 30px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
